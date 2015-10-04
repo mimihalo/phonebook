@@ -5,7 +5,7 @@
 /* FILL YOUR OWN IMPLEMENTATION HERE! */
 entry *findName(char lastname[], entry *pHead)
 {
-     while (pHead != NULL) {
+    while (pHead != NULL) {
         if (strcasecmp(lastname, pHead->lastName) == 0)
             return pHead;
         pHead = pHead->pNext;
@@ -15,8 +15,7 @@ entry *findName(char lastname[], entry *pHead)
 
 entry *append(char lastName[], entry *e)
 {
-	e->pNext = (entry *) malloc(sizeof(entry));
-	//e->info = (struct ENTRY_INFO*) malloc(sizeof(struct ENTRY_INFO));
+    e->pNext = (entry *) malloc(sizeof(entry));
     e = e->pNext;
     strcpy(e->lastName, lastName);
     e->pNext = NULL;
