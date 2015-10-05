@@ -41,7 +41,6 @@ int main(int argc, char *argv[])
     pHead = (entry *) calloc(HASH_TABLE_SIZE,sizeof(entry));
     printf("size of entry : %lu bytes\n", sizeof(entry));
     e = pHead;
-    //e->pNext = NULL;
 
     clock_gettime(CLOCK_REALTIME, &start);
     while (fgets(line, sizeof(line), fp)) {
@@ -57,11 +56,8 @@ int main(int argc, char *argv[])
     /* close file as soon as possible */
     fclose(fp);
 
-    //e = pHead;
-
     /* the givn last name to find */
     char input[MAX_LAST_NAME_SIZE] = "zyxel";
-    //e = pHead;
 
     assert(findName(input, e) &&
            "Did you implement findName() in " IMPL "?");
