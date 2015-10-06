@@ -18,11 +18,12 @@ struct ENTRY_INFO {
 
 typedef struct __PHONE_BOOK_ENTRY {
     char lastName[MAX_LAST_NAME_SIZE];
-    struct __PHONE_BOOK_ENTRY *pNext;
+    struct __PHONE_BOOK_ENTRY *pLeft,*pRight;
     struct ENTRY_INFO *info;
+    unsigned int key;
 } entry;
 
-entry *findName(char lastname[], entry *pHead);
-entry *append(char lastName[], entry *e);
+entry *findName(char lastname[], entry *root);
+entry *append(char lastname[], entry *root);
 
 #endif
