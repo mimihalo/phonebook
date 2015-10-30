@@ -1,6 +1,6 @@
 #include <stdlib.h>
-
 #include "phonebook_opt.h"
+
 
 unsigned int getKey(char lastname[])
 {
@@ -18,6 +18,7 @@ unsigned int getKey(char lastname[])
 entry *findName(char lastname[], entry *root)
 {
     int key=getKey(lastname);
+    char *strtmp;
     entry *cnode=root;
 
     while(cnode!=NULL) {
@@ -61,7 +62,7 @@ entry *append(char lastname[], entry *root)
                 nnode->pLeft=NULL;
                 nnode->pRight=NULL;
                 strcpy(nnode->lastName,lastname);
-                finish++;
+                return root;
             }
         } else {
             if(cnode->pRight!=NULL)
@@ -73,10 +74,20 @@ entry *append(char lastname[], entry *root)
                 nnode->pLeft=NULL;
                 nnode->pRight=NULL;
                 strcpy(nnode->lastName,lastname);
-                finish++;
+                return root;
             }
         }
     }
 
+    return root;
+}
+
+entry *init_struct()
+{
+    entry *root=(entry *) malloc(sizeof(entry));
+    root->key=1024;
+    root->pLeft=NULL;
+    root->pRight=NULL;
+    strcpy(root->lastName,"");
     return root;
 }

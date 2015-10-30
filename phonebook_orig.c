@@ -26,3 +26,10 @@ entry *append(char lastName[], entry *e)
 
     return e;
 }
+
+entry *init_struct()
+{
+    entry *tmp=(entry *) malloc(sizeof(entry));
+    tmp->pNext = NULL;
+    return tmp;
+}

@@ -38,8 +38,8 @@ int main(int argc, char *argv[])
 
     /* build the entry */
     entry *pHead, *e;
-    //pHead = (entry *) malloc(sizeof(entry));
-    pHead=NULL;
+    pHead=init_struct();
+    e=pHead;
     printf("size of entry : %lu bytes\n", sizeof(entry));
 
 #if defined(__GNUC__)
@@ -51,11 +51,12 @@ int main(int argc, char *argv[])
             i++;
         line[i - 1] = '\0';
         i = 0;
-        pHead = append(line, pHead);
+        e = append(line, e);
     }
     clock_gettime(CLOCK_REALTIME, &end);
     cpu_time1 = diff_in_second(start, end);
 
+    //printf("append complete\n");
     /* close file as soon as possible */
     fclose(fp);
 
