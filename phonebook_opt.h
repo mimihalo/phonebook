@@ -24,6 +24,6 @@ typedef struct __PHONE_BOOK_ENTRY {
 
 entry *findName(char lastname[], entry *pHead);
 entry *append(char lastName[], entry *e);
-unsigned int hash(char lastName[],int ht_size);
+entry *init_struct();
 
 #endif

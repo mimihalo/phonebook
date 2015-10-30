@@ -2,7 +2,18 @@
 
 #include "phonebook_opt.h"
 
-/* FILL YOUR OWN IMPLEMENTATION HERE! */
+unsigned int hash(char lastName[],int ht_size)
+{
+    int htmp=0,i=0;
+    while(lastName[i]!='\0') {
+        htmp<<=2;
+        htmp+=lastName[i];
+        i++;
+    }
+
+    return htmp % ht_size;
+}
+
 entry *findName(char lastname[], entry *pHead)
 {
     unsigned int index=hash(lastname,HASH_TABLE_SIZE);
@@ -23,14 +34,8 @@ entry *append(char lastName[], entry *e)
     return e;
 }
 
-unsigned int hash(char lastName[],int ht_size)
+entry *init_struct()
 {
-    int htmp=0,i=0;
-    while(lastName[i]!='\0') {
-        htmp<<=2;
-        htmp+=lastName[i];
-        i++;
-    }
-
-    return htmp % ht_size;
+    entry *tmp = (entry *) calloc(HASH_TABLE_SIZE,sizeof(entry));
+    return tmp;
 }
